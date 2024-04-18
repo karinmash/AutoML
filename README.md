@@ -26,7 +26,6 @@ Download your models.
 
 # Using the app:
 Select a dataset
-Select an outcome variable and supervised ML task (regression or classification) to perform
 Press the "Run AutoML" button to perform AutoML and generate Python code for the best ML pipeline
 Note: The running time for pipeline optimization and evaluation time per iteration is limited to to 10 minutes max. In practice, AutoML with TPOT should be run with multiple instances in parallel for much longer (hours or days). You can modify this limit by modifying the "Maximum running time" Streamlit slider in app.py.
 
@@ -43,34 +42,28 @@ Note: The running time for pipeline optimization and evaluation time per iterati
 
 
 ### Exploratory Data Analysis
-  * Select Visualizing the Data.
-  * Assign your target variable.
+  * Select Exploratory Data Analysis option.
+    ![image](https://github.com/karinmash/AutoML/assets/111049027/39d249a0-a031-4584-b947-1c7b8d04aa04)
 
-First I installed all the necessary libraries required for this Project.
+### Data Cleaning
+  * Select Cleaning option.
+    ![image](https://github.com/karinmash/AutoML/assets/111049027/f7a9e340-07b8-4c7c-a592-711f8a6ddf58)
 
-Then I imported the Data by reading csv file using read.csv() Method.
+### Data Preprocessing
+  * Select Preprocessing option.
+    ![image](https://github.com/karinmash/AutoML/assets/111049027/810e5f1d-69ca-4549-9d51-da41f225f9ed)
 
-Then I dropped the Invoice ID Column because we don't need it in analysis.
+    ![image](https://github.com/karinmash/AutoML/assets/111049027/6e1f44f9-402b-4b15-a658-d73bf5e6d2b3)
 
-After that I listed down all the columns in the Dataset by df.columns Method.
 
-Then I used df.shape Method to look for the rows and columns in the Data.
 
-Then I look for the Info of the Dataset by using df.info() Method.
 
-Cleaning the Data
 
-First I start by describing the Data by using df.describe() Method.
 
-Then I converted Date Column to Pandas Date and Time DataType.
+   
 
-And After that I extracted Year, Month, Day from the Date.
 
-Then I listed down all the unique values of categorical columns.
 
-And Finally I verified the null values in the Dataset by using df.isna().sum()
 
-Visualizing the Data
 
-Subplots of Distribution of Unit Price, Ratings and Gross Income
  
