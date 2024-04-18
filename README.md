@@ -1,39 +1,6 @@
 # AutoML Web Application
 a web application for processing classification problems using Streamlit and Pycaret. 🔎🔎
 
-Upload your dataset.
-View a summary of your dataset.
-Visualize correlation matrix and values distribution.
-Clean your data.
-Apply data preprocessing techniques.
-Train regression/classification models.
-Evaluate your trained models.
-Download your models.
-
-# How to use it?
-* Drag and drop your csv file
-* Assign your target variable
-* 
-* Choose your machine learning model
-* Let the app do all the job for you :)
-
-# Overview
-* This is a supervised Machine Learning based Project in which you can Upload a Dataset of your choice,
-* View the Charts and Bar graphs related to the Dataset,
-* Click on the TRAIN button,
-* Finally get the Scores, Code and Report for your Model :)
-
-
-# Using the app:
-Select a dataset
-Press the "Run AutoML" button to perform AutoML and generate Python code for the best ML pipeline
-Note: The running time for pipeline optimization and evaluation time per iteration is limited to to 10 minutes max. In practice, AutoML with TPOT should be run with multiple instances in parallel for much longer (hours or days). You can modify this limit by modifying the "Maximum running time" Streamlit slider in app.py.
-
-
-
-
-
-
 # Steps involved in the Project
 ### Upload the Dataset
   * Drag and drop your csv file.
