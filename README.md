@@ -14,13 +14,23 @@ a web application for processing classification problems using Streamlit and Pyc
 
 ### Data Cleaning
   * Select Cleaning option.
-    ![image](https://github.com/karinmash/AutoML/assets/111049027/f7a9e340-07b8-4c7c-a592-711f8a6ddf58)
+    ![image](https://github.com/karinmash/AutoML/assets/111049027/4ba8eccd-0d0a-474b-a1b1-f72aa827fc67)
+    ![image](https://github.com/karinmash/AutoML/assets/111049027/fab9574f-caef-4262-b10f-b58bfe0a1b9b)
+
+
+    ![image](https://github.com/karinmash/AutoML/assets/111049027/43b2278a-e91c-4ef8-a023-eafe30c97c34)
+
+    
+
 
 ### Data Preprocessing
   * Select Preprocessing option.
     ![image](https://github.com/karinmash/AutoML/assets/111049027/810e5f1d-69ca-4549-9d51-da41f225f9ed)
 
     ![image](https://github.com/karinmash/AutoML/assets/111049027/6e1f44f9-402b-4b15-a658-d73bf5e6d2b3)
+
+    
+
 
 
 
