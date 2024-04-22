@@ -30,7 +30,7 @@ a web application for processing classification problems using Streamlit and Pyc
     ![image](https://github.com/karinmash/AutoML/assets/111049027/6e1f44f9-402b-4b15-a658-d73bf5e6d2b3)
 
     
-AutoML_recording.gif
+[AutoML_recording.gif](https://github.com/karinmash/AutoML/blob/21b9a49c067167bc150c3482e71dd9f23e32ed03/AutoML_recording.gif)
 
 
 
