@@ -3,6 +3,8 @@ a web application for processing classification problems using Streamlit and Pyc
 ![AutoML_recording.gif](https://github.com/karinmash/AutoML/blob/21b9a49c067167bc150c3482e71dd9f23e32ed03/AutoML_recording.gif)
 # AutoML Web Application2
 ![recording.gif](https://github.com/karinmash/AutoML/blob/e073a7df31849cff38352435cf771710524ad110/recording.gif)
+
+https://github.com/karinmash/AutoML/blob/1ad7b57b98206e03fdd9e6e4a819db8f0f9eebf4/recording.gif
 # Steps involved in the Project
 ### Upload the Dataset
   * Drag and drop your csv file.
