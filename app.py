@@ -45,7 +45,6 @@ def click_button():
     st.session_state.clicked = True
 
 
-
 def random_imputation(new_data2, missing_columns):
     for feature in missing_columns:
         number_missing = new_data2[feature].isnull().sum()
@@ -221,41 +220,7 @@ with st.expander("Data Cleaning"):
             st.write("Dataset shape:", df.shape)
             st.write("Total number of Nan values remaining:", df.isna().sum().sum())
 
-        # if st.button("Apply data cleaning",on_click=click_button):
-        #     if drop_duplicates:
-        #         df = df.drop_duplicates()
-        #     if drop_colmuns:
-        #         df = df.drop(columns, axis=1)
-        #     if Handling_missing_data:
-        #         if 'Drop the missing data' in Handling_missing_data_operation:
-        #             if drop_na0:
-        #                 df = df.dropna(axis=0)
-        #             if drop_na1:
-        #                 df = df.dropna(axis=1)
-        #
-        #         if 'Fill the missing data' in Handling_missing_data_operation:
-        #             if "Mean" in Imputation_options:
-        #                 imputer = SimpleImputer(strategy='mean')
-        #                 df[columns_for_Mean_imputation] = np.round(
-        #                     imputer.fit_transform(df[columns_for_Mean_imputation]), 1)
-        #
-        #             if "Median" in Imputation_options:
-        #                 imputer = SimpleImputer(strategy='median')
-        #                 df[columns_for_Median_imputation] = np.round(
-        #                     imputer.fit_transform(df[columns_for_Median_imputation]), 1)
-        #
-        #             if "Most frequent" in Imputation_options:
-        #                 imputer = SimpleImputer(strategy='most_frequent')
-        #                 df[columns_for_Most_frequent_imputation] = imputer.fit_transform(
-        #                     df[columns_for_Most_frequent_imputation])
-        #
-        #             if "Random Imputation" in Imputation_options:
-        #                 df = random_imputation(df, columns_for_Random_imputation)
-        #
-        #     st.session_state.df = df
-        #     st.write(df)
-        #     st.write("Dataset shape:", df.shape)
-        #     st.write("Total number of Nan values remaining:", df.isna().sum().sum())
+       
 
 with st.expander("Data Preprocessing"):
     if df is not None:
@@ -332,116 +297,18 @@ with st.expander("Model Training"):
         st.write("Dataset to be used for training")
         st.write(df)
         st.write("Dataset shape:", df.shape)
-        # setup(df, target=chosen_target, verbose=False)
-        # setup_df = pull()
-        # st.info("This is the ML experiment settings")
-        # st.dataframe(setup_df)
         N=5
-        # st.button('Run Modelling', on_click=click_button)
-        # if st.session_state.clicked:
+ 
         if st.button('Run Modelling'):
             setup(df, target=chosen_target, verbose=False)
             setup_df = pull()
             st.info("This is the ML experiment settings")
             st.dataframe(setup_df)
-
-            # Transformed_dataset = get_config('dataset_transformed')
-            # st.subheader('Transformed dataset:')
-            # st.dataframe(Transformed_dataset)
-            # st.write('Transformed dataset shape: ', Transformed_dataset.shape)
-            #
-            # Transformed_train = get_config('train_transformed')
-            # st.subheader('Transformed train:')
-            # st.dataframe(Transformed_train)
-            # st.write('Transformed train shape: ', Transformed_train.shape)
-            #
-            # Transformed_test = get_config('test_transformed')
-            # st.subheader('Transformed test:')
-            # st.dataframe(Transformed_test)
-            # st.write('Transformed test shape: ', Transformed_test.shape)
             best_N = compare_models(n_select=N)
             compare_best_N = pull()
             best_model = best_N[0]
-
-            # st.subheader("Before Tuning")
             st.info("The performance of all the estimators available in the model library")
             st.dataframe(compare_best_N)
-            # fig = px.bar(
-            #     compare_best_N.set_index("Model"),
-            #     orientation='h',
-            #     width=980
-            # )
-            # fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), yaxis={'categoryorder': 'total ascending'})
-            # st.write(fig)
-
-
-            # best_model = compare_models()
-            # compare_df = pull()
-            # st.info("This is your ML model")
-            # st.dataframe(compare_df)
-
-            # fig = px.bar(
-            #     compare_df.set_index("Model"),
-            #     orientation='h',
-            #     width=980
-            # )
-            # fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), yaxis={'categoryorder': 'total ascending'})
-            # st.write(fig)
-
-            # st.info("The 5 best estimators are:")
-            # for model in best_N:
-            #     model
-            # st.info("The winner algorithm is:")
-            # best_model
-            # model_name = type(best_model).__name__
-
-
-            # # Get all plots
-            # all_plots = list(get_config('_available_plots').keys())
-            # all_plots
-            # # plotting = st.multiselect("Please pick the plots you want", all_plots)
-            # for plot in all_plots:
-            #     try:
-            #         # Save each plot of each model to desired directory
-            #         plot_model(best_model, plot=plot, display_format='streamlit')
-            #     except Exception as e:
-            #         st.info(f'{model_name} has error in {plot} plot')
-
-            # available_plots = get_config('_available_plots')
-            # available_plots
-            # st.write(type(available_plots))
-
-
-
-            # plot_model(best_model, plot='confusion_matrix', plot_kwargs={'percent': True},
-            #            display_format='streamlit')
-            #
-            # plot_model(best_model, plot='parameter', display_format='streamlit')
-            # pl = ['parameter', 'confusion_matrix', 'auc', 'threshold', 'pr', 'class_report', 'learning', 'manifold']
-            # for plot in pl:
-            #     try:
-            #         plot_model(best_model, plot=plot, display_format='streamlit')
-            #     except:
-            #         pass
-
-                # st.header("Predictions")
-                # predictions = predict_model(best_model, raw_score=True)
-                # st.write('#### Predictions on holdout set')
-                # st.dataframe(predictions)
-                #
-                # new_data = df.copy()
-                # new_data.drop(chosen_target, axis=1, inplace=True)
-                #
-                # predictions = predict_model(best_model, data=new_data, raw_score=True)
-                # st.write('#### Predictions on new data')
-                # st.dataframe(predictions)
-
-            # tuned_best_model = tune_model(best_model)
-            # st.info("Tuned model:")
-            # tuned_best_model
-            # if st.button('Tune 5 best models'):
-            # Then tune these N best models
-            # st.subheader("After Tuning the hyperparameters of the 5 best estimators")
             tuned_models = [tune_model(model) for model in best_N]
             best_model = compare_models(include=tuned_models)
             compare_df = pull()
@@ -456,7 +323,6 @@ with st.expander("Model Training"):
             st.write(fig)
             st.info("The winner algorithm after Hyperparameter tuning is:")
             best_model
-            # st.info(best_model)
             plot_model(best_model, plot='confusion_matrix', plot_kwargs={'percent': True},
                         display_format='streamlit')
 
