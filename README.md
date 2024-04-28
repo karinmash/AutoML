@@ -5,7 +5,10 @@ a web application for processing classification problems using Streamlit and Pyc
 An End-to-End Machine Learning Web Application for Classification problem. Currently supported for csv and excel files. The application relies on these two excellent libraries for machine learning:
  * streamlit: https://github.com/streamlit/streamlit
  * pycaret: https://github.com/pycaret/pycaret
-# Features
+
+---
+
+## Features
  1. Upload the Dataset
     * Drag and drop your csv file.
     * Assign your target variable.
@@ -25,13 +28,13 @@ An End-to-End Machine Learning Web Application for Classification problem. Curre
     * Remove duplicates
     * Drop specific columns
     * Handle missing data
-      * Drop Missing Values ("Drop all rows with Nan values", "Drop all columns with Nan values")
-      * Missing Values Imputation ("Mean Imputation", "Median Imputation", "Most frequent Imputation", "Random Imputation")
+      * Drop Missing Values (Drop all rows with Nan values, Drop all columns with Nan values)
+      * Missing Values Imputation (Mean Imputation, Median Imputation, Most frequent Imputation, Random Imputation)
   
  4. Data Preprocessing options:
     * Scale your dataset (MinMaxScaler)
-    * Encode your dataset ("Label Encoder", "One Hot Encoder", "Ordinal Encoder")
-    * Balance your dataset ("Over Sampling", "Under Sampling", "Combined")
+    * Encode your dataset (Label Encoder, One Hot Encoder, Ordinal Encoder)
+    * Balance your dataset (Over Sampling, Under Sampling, Combined)
    
  5. Model Training preforms:
     * Training and Comparing all available Machine Learning Algorithm automatically.
@@ -42,7 +45,7 @@ An End-to-End Machine Learning Web Application for Classification problem. Curre
    
                             
 
-
+---
 
 # Steps involved in the Project
 ### Upload the Dataset
