@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import ydata_profiling
 from sklearn.preprocessing import OrdinalEncoder, MinMaxScaler, LabelEncoder
-# from streamlit_pandas_profiling import st_profile_report
 from streamlit_ydata_profiling import st_profile_report
 import plotly.express as px
 from sklearn.impute import SimpleImputer
@@ -11,7 +10,6 @@ from imblearn.over_sampling import RandomOverSampler
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.combine import SMOTEENN
 from sklearn.pipeline import Pipeline
-
 from pycaret.classification import *
 
 plot_colors = px.colors.sequential.YlOrRd[::-2]
@@ -31,13 +29,6 @@ if 'df' not in st.session_state:
 else:
     df = st.session_state.df
 
-
-# if 'clicked' not in st.session_state:
-#     st.session_state.clicked = False
-#
-#
-# def click_button():
-#     st.session_state.clicked = True
 
 def stateful_button(*args, key=None, **kwargs):
     if key is None:
@@ -111,7 +102,7 @@ with st.expander("Exploratory Data Analysis"):
 
         elif eda_choise == 'Show Value Counts':
             st.header('Value counts in a :blue[_bar chart_]', divider='rainbow')
-            # st.set_option('deprecation.showPyplotGlobalUse', False)
+          
 
             all_cols_less_40 = [col for col in df.columns if df[col].nunique() < 40]
             cols_to_show = st.multiselect("Select columns to show", all_cols_less_40, default=all_cols_less_40[0])
@@ -189,9 +180,7 @@ with st.expander("Data Cleaning"):
                         "Please select the columns that you want to perform Random Imputation imputation on",
                         columns_with_empty_values)
 
-        # st.button('Apply data cleaning', on_click=click_button)
-        # if st.button('Apply data cleaning'):
-        # if st.session_state.clicked:
+       
         if stateful_button('Apply data cleaning', key="cleaning_button"):
             if drop_duplicates:
                 df = df.drop_duplicates()
@@ -255,9 +244,7 @@ with st.expander("Data Preprocessing"):
                                                      df.columns.tolist())
         if balance:
             sample_tech = st.selectbox("Select sampling technique", ["Over Sampling", "Under Sampling", "Combined"])
-        # st.button('Apply data preprocessing', on_click=click_button)
-        # if st.button('Apply data preprocessing'):
-        # if st.session_state.clicked:
+      
         if stateful_button('Apply data preprocessing', key="preprocessing_button"):
             if Scale:
                 scaler = MinMaxScaler()
@@ -299,119 +286,17 @@ with st.expander("Model Training"):
         st.write("Dataset to be used for training")
         st.write(df)
         st.write("Dataset shape:", df.shape)
-        # setup(df, target=chosen_target, verbose=False)
-        # setup_df = pull()
-        # st.info("This is the ML experiment settings")
-        # st.dataframe(setup_df)
         N = 5
-        # st.button('Run Modelling', on_click=click_button)
-        # if st.session_state.clicked:
         if stateful_button('Run Modelling', key="modelling_button"):
-            # if st.button('Run Modelling'):
             setup(df, target=chosen_target, verbose=False)
             setup_df = pull()
             st.info("This is the ML experiment settings")
             st.dataframe(setup_df)
-
-            # pipeline = get_config('pipeline')
-            # pipeline
-            # st.success(pipeline)
-            # st.info(pipeline)
-            #
-            # Transformed_dataset = get_config('dataset_transformed')
-            # st.subheader('Transformed dataset:')
-            # st.dataframe(Transformed_dataset)
-            # st.write('Transformed dataset shape: ', Transformed_dataset.shape)
-            #
-            # Transformed_train = get_config('train_transformed')
-            # st.subheader('Transformed train:')
-            # st.dataframe(Transformed_train)
-            # st.write('Transformed train shape: ', Transformed_train.shape)
-            #
-            # Transformed_test = get_config('test_transformed')
-            # st.subheader('Transformed test:')
-            # st.dataframe(Transformed_test)
-            # st.write('Transformed test shape: ', Transformed_test.shape)
-
             best_N = compare_models(n_select=N)
             compare_best_N = pull()
             best_model = best_N[0]
-
-            # st.subheader("Before Tuning")
             st.info("The performance of all the estimators available in the model library")
             st.dataframe(compare_best_N)
-            # fig = px.bar(
-            #     compare_best_N.set_index("Model"),
-            #     orientation='h',
-            #     width=980
-            # )
-            # fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), yaxis={'categoryorder': 'total ascending'})
-            # st.write(fig)
-
-            # best_model = compare_models()
-            # compare_df = pull()
-            # st.info("This is your ML model")
-            # st.dataframe(compare_df)
-
-            # fig = px.bar(
-            #     compare_df.set_index("Model"),
-            #     orientation='h',
-            #     width=980
-            # )
-            # fig.update_layout(margin=dict(l=0, r=0, t=0, b=0), yaxis={'categoryorder': 'total ascending'})
-            # st.write(fig)
-
-            # st.info("The 5 best estimators are:")
-            # for model in best_N:
-            #     model
-            # st.info("The winner algorithm is:")
-            # best_model
-            # model_name = type(best_model).__name__
-
-            # # Get all plots
-            # all_plots = list(get_config('_available_plots').keys())
-            # all_plots
-            # # plotting = st.multiselect("Please pick the plots you want", all_plots)
-            # for plot in all_plots:
-            #     try:
-            #         # Save each plot of each model to desired directory
-            #         plot_model(best_model, plot=plot, display_format='streamlit')
-            #     except Exception as e:
-            #         st.info(f'{model_name} has error in {plot} plot')
-
-            # available_plots = get_config('_available_plots')
-            # available_plots
-            # st.write(type(available_plots))
-
-            # plot_model(best_model, plot='confusion_matrix', plot_kwargs={'percent': True},
-            #            display_format='streamlit')
-            #
-            # plot_model(best_model, plot='parameter', display_format='streamlit')
-            # pl = ['parameter', 'confusion_matrix', 'auc', 'threshold', 'pr', 'class_report', 'learning', 'manifold']
-            # for plot in pl:
-            #     try:
-            #         plot_model(best_model, plot=plot, display_format='streamlit')
-            #     except:
-            #         pass
-
-            # st.header("Predictions")
-            # predictions = predict_model(best_model, raw_score=True)
-            # st.write('#### Predictions on holdout set')
-            # st.dataframe(predictions)
-            #
-            # new_data = df.copy()
-            # new_data.drop(chosen_target, axis=1, inplace=True)
-            #
-            # predictions = predict_model(best_model, data=new_data, raw_score=True)
-            # st.write('#### Predictions on new data')
-            # st.dataframe(predictions)
-
-            # tuned_best_model = tune_model(best_model)
-            # st.info("Tuned model:")
-            # tuned_best_model
-            # if st.button('Tune 5 best models'):
-            # Then tune these N best models
-            # st.subheader("After Tuning the hyperparameters of the 5 best estimators")
             tuned_models = [tune_model(model) for model in best_N]
             best_model = compare_models(include=tuned_models)
             compare_df = pull()
@@ -426,7 +311,6 @@ with st.expander("Model Training"):
             st.write(fig)
             st.info("The winner algorithm after Hyperparameter tuning is:")
             best_model
-            # st.info(best_model)
             plot_model(best_model, plot='confusion_matrix', plot_kwargs={'percent': True},
                        display_format='streamlit')
 
