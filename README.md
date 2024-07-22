@@ -4,11 +4,6 @@ An End-to-End Machine Learning Web Application for processing Classification pro
 ![recording.gif](https://github.com/karinmash/AutoML/blob/e073a7df31849cff38352435cf771710524ad110/recording.gif)
 
 
-recording.gif
-
-https://github.com/karinmash/AutoML/blob/3734364debdc4a14225af3c9b3e4a9d28ca241c7/recording.gif
-
-
 Currently supported for csv and excel files. The application relies on these two excellent libraries for machine learning:
  * Streamlit: https://github.com/streamlit/streamlit
  * Pycaret: https://github.com/pycaret/pycaret
