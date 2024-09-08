@@ -68,10 +68,8 @@ with st.expander("Exploratory Data Analysis"):
                                            'Show columns', 'Show selected columns', 'Show Correlation Heatmap',
                                            'Show Value Counts', 'Show Unique Values', 'Show ydata profiling'],
                                   index=None)
-        if eda_choise == None:
-            st.write("Please select an Option...")
 
-        elif eda_choise == 'Show shape':
+        if eda_choise == 'Show shape':
             st.write("Shape of the Dataset :", df.shape)
 
         elif eda_choise == 'Show data type':
